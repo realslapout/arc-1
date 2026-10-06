@@ -109,6 +109,10 @@ class ARC1Predictor:
         self.optfit = optfit
         self.dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[dtype]
         on_gpu = str(device).startswith("cuda")
+        if on_gpu and self.dtype == torch.bfloat16 and not torch.cuda.is_bf16_supported():
+            # older GPUs without bf16 (e.g. the T4 in Colab): fp32 weights, fp16 compute (same accuracy)
+            self.model.float()
+            self.dtype = torch.float16
         if flags["half"] and self.dtype != torch.float32 and on_gpu:
             self.model.to(self.dtype)
         # CUDA graphs: each padded batch shape is captured once and replayed, which removes the per-kernel launch

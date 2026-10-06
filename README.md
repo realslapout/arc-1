@@ -9,7 +9,7 @@ runs on your own machine can get to hosted decision APIs like Jev. Short version
 run it offline, but it is not as accurate yet. All the numbers are below, including the ones where it loses.
 
 - Weights: [huggingface.co/realslapout/ARC-1](https://huggingface.co/realslapout/ARC-1)
-- Demo: [huggingface.co/spaces/realslapout/ARC-1-demo](https://huggingface.co/spaces/realslapout/ARC-1-demo)
+- Try it in your browser on a free GPU: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/realslapout/arc-1/blob/main/notebooks/quickstart.ipynb)
 
 ![The ARC-1 demo answering a banking question with eight options](docs/demo.jpg)
 
@@ -68,6 +68,14 @@ model = ARC1Predictor("realslapout/ARC-1", cuda_graphs=True)
 ```
 
 It also runs on a CPU (`device="cpu"`), at roughly 0.4 s per short request with two threads.
+
+There is also a small web demo (the screenshot above). It runs on your own machine:
+
+```bash
+pip install gradio
+git clone https://github.com/realslapout/arc-1 && cd arc-1
+python demo/app.py          # add --share for a temporary public link
+```
 
 ## Question types
 
