@@ -1,0 +1,9 @@
+ARC-1
+Copyright 2026 KMatysek
+
+This product includes code adapted from Laya (https://github.com/NandhaKishorM/laya),
+Copyright Convai Innovations, licensed under the Apache License 2.0.
+
+The released model weights are derived from Qwen3-1.7B-Base (https://huggingface.co/Qwen/Qwen3-1.7B-Base),
+Copyright Alibaba Cloud, licensed under the Apache License 2.0. The weights themselves are released under
+CC BY-NC 4.0 because part of the training data only allows non-commercial use (see DATA.md).

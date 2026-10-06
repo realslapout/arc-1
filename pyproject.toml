@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arc1"
+version = "0.1.0"
+description = "ARC-1: a fast 1.7B model for typed decisions (choice / score / yes-no) with calibrated probabilities"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.4",
+    "transformers>=4.56",
+    "safetensors>=0.4",
+    "huggingface_hub>=0.30",
+    "numpy>=1.24",
+]
+
+[project.urls]
+Homepage = "https://github.com/KMatysek/arc-1"
+Model = "https://huggingface.co/mortalvoid/ARC-1"
+
+[tool.setuptools.packages.find]
+include = ["arc1*"]
