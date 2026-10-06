@@ -1,7 +1,7 @@
 """ARC-1 inference.
 
     from arc1 import ARC1Predictor
-    model = ARC1Predictor("mortalvoid/ARC-1")          # Hugging Face repo id or a local checkpoint folder
+    model = ARC1Predictor("realslapout/ARC-1")          # Hugging Face repo id or a local checkpoint folder
     model.predict(state, questions)
 
 `predict` / `predict_batch` take the typed-decision wire format (choice / score / noul questions) and return
@@ -75,7 +75,7 @@ def resolve(spec: str) -> str:
 class ARC1Predictor:
     """ARC-1 decision model.
 
-    spec         Hugging Face repo id (e.g. "mortalvoid/ARC-1") or a local checkpoint folder
+    spec         Hugging Face repo id (e.g. "realslapout/ARC-1") or a local checkpoint folder
     device       "cuda" / "cpu" (default: cuda when available)
     cuda_graphs  capture CUDA graphs for small batches: lowest latency for single requests on a GPU
                  (the first call of each new input shape is slower while it is captured)

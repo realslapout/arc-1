@@ -18,8 +18,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/KMatysek/arc-1"
-Model = "https://huggingface.co/mortalvoid/ARC-1"
+Homepage = "https://github.com/realslapout/arc-1"
+Model = "https://huggingface.co/realslapout/ARC-1"
 
 [tool.setuptools.packages.find]
 include = ["arc1*"]

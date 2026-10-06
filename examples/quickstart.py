@@ -1,11 +1,11 @@
 """Smallest useful example: route a support ticket, rate its urgency and check the customer's mood.
 
-    pip install git+https://github.com/KMatysek/arc-1
+    pip install git+https://github.com/realslapout/arc-1
     python examples/quickstart.py
 """
 from arc1 import ARC1Predictor
 
-model = ARC1Predictor("mortalvoid/ARC-1", cuda_graphs=True)
+model = ARC1Predictor("realslapout/ARC-1", cuda_graphs=True)
 
 state = {"ticket": "I was charged twice for the same order and I want my money back."}
 questions = {

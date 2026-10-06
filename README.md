@@ -8,21 +8,21 @@ I built it over 11 days on a single RTX 4060 Ti. The question I wanted to answer
 runs on your own machine can get to hosted decision APIs like Jev. Short version: it is a lot faster and you can
 run it offline, but it is not as accurate yet. All the numbers are below, including the ones where it loses.
 
-- Weights: [huggingface.co/mortalvoid/ARC-1](https://huggingface.co/mortalvoid/ARC-1)
-- Demo: [huggingface.co/spaces/mortalvoid/ARC-1-demo](https://huggingface.co/spaces/mortalvoid/ARC-1-demo)
+- Weights: [huggingface.co/realslapout/ARC-1](https://huggingface.co/realslapout/ARC-1)
+- Demo: [huggingface.co/spaces/realslapout/ARC-1-demo](https://huggingface.co/spaces/realslapout/ARC-1-demo)
 
 ![The ARC-1 demo answering a banking question with eight options](docs/demo.jpg)
 
 ## Quick start
 
 ```bash
-pip install git+https://github.com/KMatysek/arc-1
+pip install git+https://github.com/realslapout/arc-1
 ```
 
 ```python
 from arc1 import ARC1Predictor
 
-model = ARC1Predictor("mortalvoid/ARC-1")   # downloads ~3.5 GB the first time
+model = ARC1Predictor("realslapout/ARC-1")   # downloads ~3.5 GB the first time
 
 state = {"ticket": "I was charged twice for the same order and I want my money back."}
 questions = {
@@ -55,6 +55,8 @@ billing {'billing': 0.991669, 'shipping': 0.006424, 'tech': 0.001907}
 0.9748723399342193
 ```
 
+(Measured on a GPU in bf16. On a CPU the numbers come out slightly different, for example billing 0.997.)
+
 Every answer also carries `answer_confidence`, and `score` answers include the probability of each level. All
 questions about the same state are answered in one forward pass, so asking three questions costs not much more
 than asking one.
@@ -62,7 +64,7 @@ than asking one.
 For the lowest latency on a GPU, turn on CUDA graphs:
 
 ```python
-model = ARC1Predictor("mortalvoid/ARC-1", cuda_graphs=True)
+model = ARC1Predictor("realslapout/ARC-1", cuda_graphs=True)
 ```
 
 It also runs on a CPU (`device="cpu"`), at roughly 0.4 s per short request with two threads.
